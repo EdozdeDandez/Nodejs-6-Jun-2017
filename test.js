@@ -17,7 +17,7 @@ var server = http.createServer(function(request, response) {
       console.error(err);
     });
 
-    response.writeHead(200, {'Content-Type': 'text/plain'})
+    response.writeHead(200, {'Content-Type': 'text/html'})
 
     var responseBody = {
       headers: headers,
@@ -26,7 +26,16 @@ var server = http.createServer(function(request, response) {
       body: body
     };
 
-    response.end(JSON.stringify(responseBody));
+    response.write("<!DOCTYPE html>");
+    response.write("<html>");
+    response.write("<head>");
+    response.write("<title>Node.Js</title>");
+    response.write("</head>");
+    response.write("<body>");
+    response.write(JSON.stringify(responseBody));
+    response.write("</body");
+    response.write("</html");
+    response.end();
     
   });
 })

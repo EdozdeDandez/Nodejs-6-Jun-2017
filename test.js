@@ -32,7 +32,11 @@ var server = http.createServer(function(request, response) {
     response.write("<title>Node.Js</title>");
     response.write("</head>");
     response.write("<body>");
-    response.write(JSON.stringify(responseBody));
+    response.write("<pre>");
+    response.write("<code>");
+    response.write(JSON.stringify(responseBody, null,"<br>"));
+    response.write("</code");
+    response.write("</pre");
     response.write("</body");
     response.write("</html");
     response.end();
